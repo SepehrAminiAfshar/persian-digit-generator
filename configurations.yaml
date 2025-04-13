@@ -1,0 +1,357 @@
+# Network configurations for Bayesian Network training
+# Each configuration specifies the complete set of parameters needed for a model variant
+
+# 20x20 configurations
+small_3parents_relu_20:
+  connectivity: 3
+  hidden_layers: 1  # One hidden layer of size 64
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [20, 20]
+
+small_3parents_relu_pos_20:
+  connectivity: 3
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [20, 20]
+
+medium_3parents_relu_20:
+  connectivity: 3
+  hidden_layers: 2  # Two hidden layers of size 64
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [20, 20]
+
+medium_3parents_relu_pos_20:
+  connectivity: 3
+  hidden_layers: 2
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [20, 20]
+
+# 40x40 configurations
+small_3parents_relu_40:
+  connectivity: 3
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [40, 40]
+
+small_3parents_relu_pos_40:
+  connectivity: 3
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [40, 40]
+
+medium_3parents_relu_40:
+  connectivity: 3
+  hidden_layers: 2
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [40, 40]
+
+medium_3parents_relu_pos_40:
+  connectivity: 3
+  hidden_layers: 2
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [40, 40]
+
+# 65x65 configurations
+small_3parents_relu_65:
+  connectivity: 3
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [65, 65]
+
+small_3parents_relu_pos_65:
+  connectivity: 3
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [65, 65]
+
+medium_3parents_relu_65:
+  connectivity: 3
+  hidden_layers: 2
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [65, 65]
+
+medium_3parents_relu_pos_65:
+  connectivity: 3
+  hidden_layers: 2
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [65, 65]
+
+# 8 parents configurations
+# 20x20
+small_8parents_relu_20:
+  connectivity: 8
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [20, 20]
+
+small_8parents_relu_pos_20:
+  connectivity: 8
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [20, 20]
+
+# 40x40
+small_8parents_relu_40:
+  connectivity: 8
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [40, 40]
+
+small_8parents_relu_pos_40:
+  connectivity: 8
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [40, 40]
+
+# 65x65
+small_8parents_relu_65:
+  connectivity: 8
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [65, 65]
+
+small_8parents_relu_pos_65:
+  connectivity: 8
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [65, 65]
+
+# 15 parents configurations
+# 20x20
+small_15parents_relu_20:
+  connectivity: 15
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [20, 20]
+
+small_15parents_relu_pos_20:
+  connectivity: 15
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [20, 20]
+
+# 40x40
+small_15parents_relu_40:
+  connectivity: 15
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [40, 40]
+
+small_15parents_relu_pos_40:
+  connectivity: 15
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [40, 40]
+
+# 65x65
+small_15parents_relu_65:
+  connectivity: 15
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [65, 65]
+
+small_15parents_relu_pos_65:
+  connectivity: 15
+  hidden_layers: 1
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [65, 65]
+
+# SiLU activation variants
+# 20x20
+small_3parents_silu_20:
+  connectivity: 3
+  hidden_layers: 1
+  activation: 'silu'
+  use_positional: false
+  image_resolution: [20, 20]
+
+small_3parents_silu_pos_20:
+  connectivity: 3
+  hidden_layers: 1
+  activation: 'silu'
+  use_positional: true
+  image_resolution: [20, 20]
+
+# 40x40
+small_3parents_silu_40:
+  connectivity: 3
+  hidden_layers: 1
+  activation: 'silu'
+  use_positional: false
+  image_resolution: [40, 40]
+
+small_3parents_silu_pos_40:
+  connectivity: 3
+  hidden_layers: 1
+  activation: 'silu'
+  use_positional: true
+  image_resolution: [40, 40]
+
+# 65x65
+small_3parents_silu_65:
+  connectivity: 3
+  hidden_layers: 1
+  activation: 'silu'
+  use_positional: false
+  image_resolution: [65, 65]
+
+small_3parents_silu_pos_65:
+  connectivity: 3
+  hidden_layers: 1
+  activation: 'silu'
+  use_positional: true
+  image_resolution: [65, 65]
+
+# Linear model variants (no hidden layers)
+# 20x20 resolution
+linear_3parents_20:
+  connectivity: 3
+  hidden_layers: 0
+  activation: 'relu'  # Activation doesn't matter for linear model
+  use_positional: false
+  image_resolution: [20, 20]
+
+linear_3parents_pos_20:
+  connectivity: 3
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [20, 20]
+
+linear_8parents_20:
+  connectivity: 8
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [20, 20]
+
+linear_8parents_pos_20:
+  connectivity: 8
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [20, 20]
+
+linear_15parents_20:
+  connectivity: 15
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [20, 20]
+
+linear_15parents_pos_20:
+  connectivity: 15
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [20, 20]
+
+# 40x40 resolution
+linear_3parents_40:
+  connectivity: 3
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [40, 40]
+
+linear_3parents_pos_40:
+  connectivity: 3
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [40, 40]
+
+linear_8parents_40:
+  connectivity: 8
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [40, 40]
+
+linear_8parents_pos_40:
+  connectivity: 8
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [40, 40]
+
+linear_15parents_40:
+  connectivity: 15
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [40, 40]
+
+linear_15parents_pos_40:
+  connectivity: 15
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [40, 40]
+
+# 65x65 resolution
+linear_3parents_65:
+  connectivity: 3
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [65, 65]
+
+linear_3parents_pos_65:
+  connectivity: 3
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [65, 65]
+
+linear_8parents_65:
+  connectivity: 8
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [65, 65]
+
+linear_8parents_pos_65:
+  connectivity: 8
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [65, 65]
+
+linear_15parents_65:
+  connectivity: 15
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: false
+  image_resolution: [65, 65]
+
+linear_15parents_pos_65:
+  connectivity: 15
+  hidden_layers: 0
+  activation: 'relu'
+  use_positional: true
+  image_resolution: [65, 65] 
