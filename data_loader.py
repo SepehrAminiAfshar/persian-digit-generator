@@ -66,11 +66,10 @@ def get_train_loader(resolution='20x20', batch_size=32, num_workers=4):
         dataset,
         batch_size=batch_size,
         shuffle=True,
-        num_workers=num_workers,
-        pin_memory=True if torch.cuda.is_available() else False
+        num_workers=num_workers
     )
     
-    return train_loader 
+    return train_loader
 
 class BinaryImageDataset(Dataset):
     """

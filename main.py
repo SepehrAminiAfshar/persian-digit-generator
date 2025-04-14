@@ -4,6 +4,11 @@ from typing import Dict, Any, Optional
 import os
 import torch
 import logging
+import multiprocessing as mp
+
+# Set multiprocessing start method to 'spawn' for CUDA compatibility
+if torch.cuda.is_available():
+    mp.set_start_method('spawn', force=True)
 
 # Configure logging
 logging.basicConfig(
@@ -79,6 +84,10 @@ def run_training(config_name: str, batch_size: int = 32, num_epochs: int = 100,
     logger.info(f"Starting training with configuration: {config_name}")
     logger.info(f"Parameters: batch_size={batch_size}, num_epochs={num_epochs}, learning_rate={learning_rate}")
     
+    # Set device
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+    logger.info(f"Using device: {device}")
+    
     # Create output directories
     output_dir = 'output'
     test_loss_dir = os.path.join(output_dir, 'test_loss')
@@ -106,6 +115,17 @@ def run_training(config_name: str, batch_size: int = 32, num_epochs: int = 100,
         val_ratio=0.15,
         num_workers=4
     )
+    
+    # Create a function to move batches to device
+    def move_to_device(batch):
+        if isinstance(batch, tuple):
+            return tuple(x.to(device) for x in batch)
+        return batch.to(device)
+    
+    # Apply device movement to data loaders
+    train_loader = map(move_to_device, train_loader)
+    val_loader = map(move_to_device, val_loader)
+    test_loader = map(move_to_device, test_loader)
     
     # Initialize trainer
     logger.info("Initializing trainer...")
@@ -137,10 +157,6 @@ def run_training(config_name: str, batch_size: int = 32, num_epochs: int = 100,
     # Save samples to files
     logger.info("Saving generated samples...")
     save_samples(samples, config_name)
-    
-    # # Plot samples in a grid
-    # logger.info("Plotting samples...")
-    # plot_samples(samples, config_name)
     
     logger.info(f"Completed training for configuration: {config_name}")
     return test_loss

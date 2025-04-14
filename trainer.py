@@ -90,6 +90,7 @@ class BayesianTrainer:
         total_loss = 0
         
         for batch in tqdm(train_loader, desc="Training"):
+            batch = batch.to(self.device)
             parents = self.get_parents_for_batch(batch)
             predictions = self.network(parents)
             
@@ -119,6 +120,7 @@ class BayesianTrainer:
         
         with torch.no_grad():
             for batch in tqdm(val_loader, desc="Validating"):
+                batch = batch.to(self.device)
                 # Move batch to device and compute loss
                 parents = self.get_parents_for_batch(batch)
                 predictions = self.network(parents)
@@ -229,6 +231,7 @@ class BayesianTrainer:
         
         with torch.no_grad():
             for batch in tqdm(test_loader, desc="Testing"):
+                batch = batch.to(self.device)
                 # Move batch to device and compute loss
                 parents = self.get_parents_for_batch(batch)
                 predictions = self.network(parents)
