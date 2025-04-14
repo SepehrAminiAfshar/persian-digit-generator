@@ -138,9 +138,9 @@ def run_training(config_name: str, batch_size: int = 32, num_epochs: int = 100,
     logger.info("Saving generated samples...")
     save_samples(samples, config_name)
     
-    # Plot samples in a grid
-    logger.info("Plotting samples...")
-    plot_samples(samples, config_name)
+    # # Plot samples in a grid
+    # logger.info("Plotting samples...")
+    # plot_samples(samples, config_name)
     
     logger.info(f"Completed training for configuration: {config_name}")
     return test_loss
