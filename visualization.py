@@ -130,4 +130,5 @@ def plot_experiment_results(results: List[List[float]], x_values: List[str], tit
     os.makedirs(output_dir, exist_ok=True)
     plt.savefig(os.path.join(output_dir, f"{title.lower().replace(' ', '_')}.png"))
     plt.close()
-    print(f"Saved experiment results plot to {os.path.join(output_dir, f"{title.lower().replace(' ', '_')}.png")}") 
+    filename = f"{title.lower().replace(' ', '_')}.png"
+    print(f"Saved experiment results plot to {os.path.join(output_dir, filename)}") 
