@@ -88,6 +88,7 @@ class BayesianTrainer:
         """
         self.network.train()
         total_loss = 0
+        num_batches = 0
         
         for batch in tqdm(train_loader, desc="Training"):
             batch = batch.to(self.device)
@@ -102,8 +103,9 @@ class BayesianTrainer:
             self.optimizer.step()
             
             total_loss += batch_loss.item()
+            num_batches += 1
         
-        return total_loss / len(train_loader)
+        return total_loss / num_batches
     
     def validate(self, val_loader: DataLoader) -> float:
         """
@@ -117,6 +119,7 @@ class BayesianTrainer:
         """
         self.network.eval()
         total_loss = 0
+        num_batches = 0
         
         with torch.no_grad():
             for batch in tqdm(val_loader, desc="Validating"):
@@ -126,8 +129,9 @@ class BayesianTrainer:
                 predictions = self.network(parents)
                 batch_loss = self._loss(batch=batch, predictions=predictions)
                 total_loss += batch_loss.item()
+                num_batches += 1
         
-        return total_loss / len(val_loader)
+        return total_loss / num_batches
     
     def get_current_learning_rate(self) -> float:
         """
@@ -228,6 +232,7 @@ class BayesianTrainer:
         """
         self.network.eval()
         total_loss = 0
+        num_batches = 0
         
         with torch.no_grad():
             for batch in tqdm(test_loader, desc="Testing"):
@@ -237,8 +242,9 @@ class BayesianTrainer:
                 predictions = self.network(parents)
                 batch_loss = self._loss(batch=batch, predictions=predictions)
                 total_loss += batch_loss.item()
+                num_batches += 1
         
-        test_loss = total_loss / len(test_loader)
+        test_loss = total_loss / num_batches
         
         # Create output directory
         output_dir = 'output'

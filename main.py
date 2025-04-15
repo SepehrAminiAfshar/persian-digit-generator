@@ -116,17 +116,6 @@ def run_training(config_name: str, batch_size: int = 32, num_epochs: int = 100,
         num_workers=4
     )
     
-    # Create a function to move batches to device
-    def move_to_device(batch):
-        if isinstance(batch, tuple):
-            return tuple(x.to(device) for x in batch)
-        return batch.to(device)
-    
-    # Apply device movement to data loaders
-    train_loader = map(move_to_device, train_loader)
-    val_loader = map(move_to_device, val_loader)
-    test_loader = map(move_to_device, test_loader)
-    
     # Initialize trainer
     logger.info("Initializing trainer...")
     trainer = BayesianTrainer(
